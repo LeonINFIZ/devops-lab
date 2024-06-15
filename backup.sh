@@ -12,6 +12,9 @@ source_dir="directory_1"
 # Назва архіву
 archive_name="${backup_dir}/backup_${timestamp}.tar.gz"
 
+# Виключаємо файли з розширенням .dat
+find "$source_dir" -name "*.dat" -exec rm {} \;
+
 # Архівaція файлів
 tar -czvf "$archive_name" "$source_dir"
 
